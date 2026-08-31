@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>00brother | Painel do Gestor</title>
+    <title>00brother | Showcase de Projetos & Websites</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -17,6 +17,7 @@
             --branco: #ffffff;
             --cinza-claro: #f1f3f5;
             --cinza-texto: #5a6a7a;
+            --verde-sucesso: #2ea44f;
             --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.06);
             --sombra-media: 0 15px 40px rgba(0, 0, 0, 0.1);
             --borda: 16px;
@@ -147,10 +148,10 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
-            min-width: 0; /* Evita overflow */
+            min-width: 0;
         }
 
-        /* Banner carrossel */
+        /* Banner Carrossel Destaque */
         .banner-carousel {
             position: relative;
             width: 100%;
@@ -175,16 +176,13 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
-            font-weight: 700;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
             position: relative;
         }
 
         .slide-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(26,42,58,0.6) 0%, rgba(26,42,58,0.2) 100%);
+            background: linear-gradient(0deg, rgba(26,42,58,0.85) 0%, rgba(26,42,58,0.3) 100%);
             z-index: 1;
         }
 
@@ -192,7 +190,53 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            max-width: 800px;
+        }
+
+        .slide-content span.badge-hero {
+            background: var(--dourado);
+            color: var(--azul-corporativo);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .slide-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .slide-content p {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+        }
+
+        .btn-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dourado);
+            color: var(--azul-corporativo);
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .btn-banner:hover {
+            background: #fff;
+            transform: translateY(-2px);
         }
 
         .banner-dots {
@@ -222,24 +266,252 @@
             box-shadow: 0 0 10px rgba(201,168,76,0.7);
         }
 
-        /* Área abaixo do banner */
+        /* Área do Conteúdo */
         .content-area {
             padding: 2rem 2.5rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .section-title {
             font-size: 1.4rem;
             font-weight: 600;
             color: var(--azul-corporativo);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--dourado);
+        }
+
+        /* Estatísticas Gerais */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--branco);
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--borda);
+            box-shadow: var(--sombra-suave);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            border-left: 4px solid var(--dourado);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--dourado);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .stat-info h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-corporativo);
+        }
+
+        .stat-info p {
+            font-size: 0.85rem;
+            color: var(--cinza-texto);
+        }
+
+        /* Filtros de Categoria */
+        .filter-tabs {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.8rem;
+        }
+
+        .filter-btn {
+            background: var(--branco);
+            border: 1px solid #e0e0e0;
+            color: var(--azul-medio);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--azul-corporativo);
+            color: var(--branco);
+            border-color: var(--azul-corporativo);
+        }
+
+        /* Cards dos Projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--branco);
+            border-radius: var(--borda);
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: all var(--transicao);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .project-thumb {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background: #eaeaea;
+        }
+
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.08);
+        }
+
+        .project-status {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(26, 42, 58, 0.85);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        .project-status.concluido {
+            background: rgba(46, 164, 79, 0.9);
+        }
+
+        .project-status.destaque {
+            background: rgba(201, 168, 76, 0.95);
+            color: #1a2a3a;
+        }
+
+        .project-body {
+            padding: 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-body h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--azul-corporativo);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body p {
+            font-size: 0.88rem;
+            color: var(--cinza-texto);
+            line-height: 1.5;
             margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-tag {
+            background: var(--cinza-claro);
+            color: var(--azul-medio);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid var(--cinza-claro);
+            padding-top: 1rem;
+        }
+
+        .btn-project {
+            flex: 1;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-primary-proj {
+            background: var(--azul-corporativo);
+            color: #fff;
+        }
+
+        .btn-primary-proj:hover {
+            background: var(--dourado);
+            color: var(--azul-corporativo);
+        }
+
+        .btn-secondary-proj {
+            background: var(--cinza-claro);
+            color: var(--azul-medio);
+        }
+
+        .btn-secondary-proj:hover {
+            background: #e2e6ea;
         }
 
         /* Botões numerados (6-15) */
         .number-buttons {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
         }
 
         .num-btn {
@@ -247,9 +519,9 @@
             border: 2px solid var(--dourado);
             color: var(--azul-corporativo);
             font-weight: 600;
-            font-size: 1.2rem;
-            padding: 0.8rem;
-            border-radius: 12px;
+            font-size: 1.1rem;
+            padding: 0.6rem;
+            border-radius: 10px;
             text-align: center;
             text-decoration: none;
             transition: all var(--transicao);
@@ -257,7 +529,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
         }
 
         .num-btn:hover {
@@ -267,7 +538,7 @@
             box-shadow: var(--sombra-media);
         }
 
-        /* Cards de trabalhador */
+        /* Cards de membros da equipe */
         .worker-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -306,11 +577,10 @@
         }
 
         .worker-card p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--cinza-texto);
         }
 
-        /* Botão adicionar funcionário */
         .add-worker-btn {
             display: inline-flex;
             align-items: center;
@@ -340,7 +610,10 @@
                 padding: 1.5rem;
             }
             .banner-carousel {
-                height: 300px;
+                height: 320px;
+            }
+            .slide-content h2 {
+                font-size: 1.8rem;
             }
         }
 
@@ -371,57 +644,50 @@
                 white-space: nowrap;
             }
             .banner-carousel {
-                height: 220px;
+                height: 250px;
+            }
+            .slide-content h2 {
+                font-size: 1.4rem;
+            }
+            .slide-content p {
+                font-size: 0.85rem;
+                margin-bottom: 0.8rem;
             }
             .content-area {
                 padding: 1rem;
             }
-            .section-title {
-                font-size: 1.2rem;
-            }
-            .number-buttons {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            }
-            .worker-cards {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
             .banner-carousel {
-                height: 180px;
+                height: 210px;
             }
-            .slide-content h2 {
-                font-size: 1.2rem;
+            .slide-content span.badge-hero {
+                font-size: 0.7rem;
+            }
+            .btn-banner {
+                padding: 6px 14px;
+                font-size: 0.8rem;
             }
             .number-buttons {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 0.5rem;
             }
             .num-btn {
-                font-size: 1rem;
-                padding: 0.6rem;
+                font-size: 0.9rem;
+                padding: 0.5rem;
             }
             .worker-cards {
                 grid-template-columns: 1fr 1fr;
                 gap: 0.8rem;
             }
-            .worker-card {
-                padding: 1rem;
-            }
-            .worker-card img {
-                width: 60px;
-                height: 60px;
-            }
-            .add-worker-btn {
-                width: 100%;
-                justify-content: center;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="logo-area">
             <div class="brand">
@@ -433,10 +699,10 @@
             </div>
         </div>
         <nav>
-            <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-            <a href="6.html"><i class="fa-solid fa-diagram-project"></i> Projeto</a>
-            <a href="7.html"><i class="fa-solid fa-users"></i> Comunidade</a>
-            <a href="8.html"><i class="fa-solid fa-calendar-check"></i> Reuniões</a>
+            <a href="#" class="active"><i class="fa-solid fa-layer-group"></i> Showcase</a>
+            <a href="6.html"><i class="fa-solid fa-diagram-project"></i> Projetos</a>
+            <a href="7.html"><i class="fa-solid fa-globe"></i> Websites</a>
+            <a href="8.html"><i class="fa-solid fa-users"></i> Comunidade</a>
             <a href="9.html"><i class="fa-solid fa-briefcase"></i> Trabalhos</a>
         </nav>
         <div class="logout-area">
@@ -444,19 +710,187 @@
         </div>
     </aside>
 
-    <!-- Conteúdo principal -->
     <div class="main-content">
-        <!-- Banner carrossel (8 slides, 4s cada) -->
         <div class="banner-carousel" id="bannerCarousel">
             <div class="slides" id="slidesContainer">
-                <!-- Slides gerados pelo JS -->
-            </div>
+                </div>
             <div class="banner-dots" id="dotsContainer"></div>
         </div>
 
-        <!-- Área de conteúdo -->
         <div class="content-area">
-            <h2 class="section-title">Acesso rápido</h2>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="stat-info">
+                        <h4>18+</h4>
+                        <p>Projetos Entregues</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="stat-info">
+                        <h4>12</h4>
+                        <p>Websites no Ar</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div class="stat-info">
+                        <h4>100%</h4>
+                        <p>Responsividade</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-face-smile"></i></div>
+                    <div class="stat-info">
+                        <h4>99%</h4>
+                        <p>Satisfação do Cliente</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-folder-open"></i> Portfólio de Projetos & Sites
+                </h2>
+                <div class="filter-tabs">
+                    <button class="filter-btn active" onclick="filterProjects('todos', this)">Todos</button>
+                    <button class="filter-btn" onclick="filterProjects('website', this)">Websites</button>
+                    <button class="filter-btn" onclick="filterProjects('sistema', this)">Sistemas Web</button>
+                    <button class="filter-btn" onclick="filterProjects('app', this)">Aplicativos</button>
+                </div>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+                
+                <div class="project-card" data-category="sistema">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/1/600/400" alt="Portal de Gestão Municipal">
+                        <span class="project-status destaque">Em Destaque</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Portal do Gestor Municipal</h3>
+                        <p>Painel inteligente para monitoramento e análise de dados públicos municipais em tempo real, com tabelas e gráficos responsivos.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5/CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="6.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-eye"></i> Visualizar</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Detalhes adicionais em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="website">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/48/600/400" alt="Website Institucional">
+                        <span class="project-status concluido">Concluído</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Website Institucional 00brother</h3>
+                        <p>Site institucional moderno com animações interativas, otimização SEO avançada, design responsivo e seção de contatos corporativos.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS Grid</span>
+                            <span class="tech-tag">JS ES6</span>
+                            <span class="tech-tag">SEO</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="7.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-globe"></i> Acessar Site</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Apresentação do site aberta!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="app">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/60/600/400" alt="Comunidade Conectada">
+                        <span class="project-status concluido">Concluído</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>App Comunidade Conectada</h3>
+                        <p>Plataforma colaborativa para engajamento dos cidadãos, agendamento de reuniões locais e envio de solicitações à prefeitura.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">FontAwesome</span>
+                            <span class="tech-tag">API REST</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="8.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-mobile-screen"></i> Abrir App</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Apresentação detalhada do App!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="sistema">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/20/600/400" alt="Sistema de Vagas e Trabalhos">
+                        <span class="project-status destaque">Em Destaque</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Plataforma de Oportunidades & Trabalhos</h3>
+                        <p>Sistema centralizado para gestão de vagas de emprego, recrutamento e acompanhamento de contratos de trabalho comunitários.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="9.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-briefcase"></i> Ver Sistema</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Informações do sistema!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="website">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/119/600/400" alt="Landing Page E-commerce">
+                        <span class="project-status concluido">Concluído</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Landing Page SaaS & Serviços</h3>
+                        <p>Página de alta conversão criada para apresentação de produtos e soluções corporativas com checkout simplificado.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">Tailwind</span>
+                            <span class="tech-tag">JS</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="10.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-globe"></i> Visitar Site</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Mais detalhes em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="app">
+                    <div class="project-thumb">
+                        <img src="https://picsum.photos/id/160/600/400" alt="Painel Educacional">
+                        <span class="project-status concluido">Concluído</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Plataforma Educacional Interativa</h3>
+                        <p>Ambiente virtual de aprendizado com suporte a vídeos, questionários online e relatórios automáticos para alunos.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="11.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-graduation-cap"></i> Acessar App</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Mais detalhes em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Acesso rápido às páginas</h2>
             <div class="number-buttons">
                 <a href="6.html" class="num-btn">6</a>
                 <a href="7.html" class="num-btn">7</a>
@@ -470,41 +904,55 @@
                 <a href="15.html" class="num-btn">15</a>
             </div>
 
-            <h2 class="section-title">Nossa Equipe</h2>
+            <h2 class="section-title"><i class="fa-solid fa-users"></i> Equipe Desenvolvedora</h2>
             <div class="worker-cards">
                 <div class="worker-card">
-                    <img src="12.img" alt="Gabriel">
+                    <img src="12.img" alt="Gabriel" onerror="this.src='https://i.pravatar.cc/150?img=11'">
                     <h3>Gabriel</h3>
-                    <p>Dono da Empresa e Fundador</p>
+                    <p>Dono da Empresa & Lead Dev</p>
                 </div>
                 <div class="worker-card">
-                    <img src="13.img" alt="Pérola">
+                    <img src="13.img" alt="Pérola" onerror="this.src='https://i.pravatar.cc/150?img=5'">
                     <h3>Pérola</h3>
-                    <p>Fundadora e Designer</p>
+                    <p>Fundadora & UI/UX Designer</p>
                 </div>
                 <div class="worker-card">
-                    <img src="14.img" alt="Hubert">
+                    <img src="14.img" alt="Hubert" onerror="this.src='https://i.pravatar.cc/150?img=12'">
                     <h3>Hubert</h3>
-                    <p>Fundador e Desenvolvedor</p>
+                    <p>Fundador & Dev Fullstack</p>
                 </div>
             </div>
-            <a href="#" class="add-worker-btn" onclick="alert('Funcionalidade de adicionar funcionário em breve!'); return false;">
-                <i class="fa-solid fa-plus"></i> Adicionar Funcionário
+            
+            <a href="#" class="add-worker-btn" onclick="alert('Funcionalidade de adicionar integrante em breve!'); return false;">
+                <i class="fa-solid fa-plus"></i> Adicionar Integrante
             </a>
         </div>
     </div>
 
     <script>
-        // Banner carrossel (8 slides)
+        // Dados dos Projetos em Destaque no Banner
         const slidesData = [
-            { title: "Inovação Social", bg: "https://picsum.photos/id/10/1200/400" },
-            { title: "Tecnologia Cidadã", bg: "https://picsum.photos/id/20/1200/400" },
-            { title: "Gestão Transparente", bg: "https://picsum.photos/id/30/1200/400" },
-            { title: "Comunidade Ativa", bg: "https://picsum.photos/id/40/1200/400" },
-            { title: "Resultados Reais", bg: "https://picsum.photos/id/50/1200/400" },
-            { title: "Futuro Digital", bg: "https://picsum.photos/id/60/1200/400" },
-            { title: "Cidades Inteligentes", bg: "https://picsum.photos/id/70/1200/400" },
-            { title: "00brother", bg: "https://picsum.photos/id/80/1200/400" }
+            { 
+                tag: "Portal do Gestor",
+                title: "Inovação e Tecnologia Pública", 
+                desc: "Solução completa desenvolvida para modernizar a gestão de projetos e acompanhamento cidadão.",
+                bg: "https://picsum.photos/id/180/1200/400",
+                link: "6.html"
+            },
+            { 
+                tag: "Websites Corporativos",
+                title: "Plataformas Web de Alto Impacto", 
+                desc: "Design premium, ultra responsividade e otimização total de velocidade para a sua empresa.",
+                bg: "https://picsum.photos/id/160/1200/400",
+                link: "7.html"
+            },
+            { 
+                tag: "Soluções Customizadas",
+                title: "Ecossistema Digital 00brother", 
+                desc: "Unindo tecnologia, inovação social e gestão eficiente em um só lugar.",
+                bg: "https://picsum.photos/id/201/1200/400",
+                link: "8.html"
+            }
         ];
 
         const slidesContainer = document.getElementById('slidesContainer');
@@ -512,6 +960,7 @@
         let currentIndex = 0;
         let interval;
 
+        // Renderiza slides do carrossel
         slidesData.forEach((slide, index) => {
             const slideDiv = document.createElement('div');
             slideDiv.className = 'slide';
@@ -519,7 +968,10 @@
             slideDiv.innerHTML = `
                 <div class="slide-overlay"></div>
                 <div class="slide-content">
+                    <span class="badge-hero">${slide.tag}</span>
                     <h2>${slide.title}</h2>
+                    <p>${slide.desc}</p>
+                    <a href="${slide.link}" class="btn-banner"><i class="fa-solid fa-arrow-right"></i> Explorar Projeto</a>
                 </div>
             `;
             slidesContainer.appendChild(slideDiv);
@@ -546,7 +998,7 @@
         }
 
         function startInterval() {
-            interval = setInterval(nextSlide, 4000);
+            interval = setInterval(nextSlide, 5000);
         }
 
         function resetInterval() {
@@ -555,6 +1007,24 @@
         }
 
         startInterval();
+
+        // Função para filtrar os cards por categoria
+        function filterProjects(category, btnElement) {
+            // Atualiza o botão ativo
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // Filtra os cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'todos' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
