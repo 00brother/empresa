@@ -287,6 +287,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 1.2rem;
         }
 
         .section-title i {
@@ -506,38 +507,6 @@
             background: #e2e6ea;
         }
 
-        /* Botões numerados (6-15) */
-        .number-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 0.8rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .num-btn {
-            background: var(--branco);
-            border: 2px solid var(--dourado);
-            color: var(--azul-corporativo);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 0.6rem;
-            border-radius: 10px;
-            text-align: center;
-            text-decoration: none;
-            transition: all var(--transicao);
-            box-shadow: var(--sombra-suave);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .num-btn:hover {
-            background: var(--dourado);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--sombra-media);
-        }
-
         /* Cards de membros da equipe */
         .worker-cards {
             display: grid;
@@ -604,16 +573,194 @@
             box-shadow: var(--sombra-media);
         }
 
+        /* ========== RODAPÉ (FOOTER) ========== */
+        .site-footer {
+            background: var(--azul-corporativo);
+            color: #cfd8dc;
+            padding: 3rem 2.5rem 1.5rem;
+            margin-top: auto;
+            border-top: 4px solid var(--dourado);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 35px;
+            height: 2px;
+            background: var(--dourado);
+        }
+
+        .footer-col p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #b0bec5;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: #b0bec5;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: var(--transicao);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--dourado);
+            transform: translateX(4px);
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.88rem;
+            margin-bottom: 0.8rem;
+            color: #b0bec5;
+        }
+
+        .contact-list i {
+            color: var(--dourado);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .contact-list a {
+            color: #b0bec5;
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .contact-list a:hover {
+            color: var(--dourado);
+        }
+
+        /* Formulario rápido no footer */
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-form input,
+        .footer-form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: var(--transicao);
+        }
+
+        .footer-form input::placeholder,
+        .footer-form textarea::placeholder {
+            color: #90a4ae;
+        }
+
+        .footer-form input:focus,
+        .footer-form textarea:focus {
+            border-color: var(--dourado);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-form button {
+            background: var(--dourado);
+            color: var(--azul-corporativo);
+            border: none;
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .footer-form button:hover {
+            background: #fff;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .social-icons a:hover {
+            background: var(--dourado);
+            color: var(--azul-corporativo);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.82rem;
+            color: #90a4ae;
+        }
+
         /* ========== RESPONSIVIDADE ========== */
         @media (max-width: 1024px) {
             .content-area {
                 padding: 1.5rem;
             }
-            .banner-carousel {
-                height: 320px;
-            }
-            .slide-content h2 {
-                font-size: 1.8rem;
+            .site-footer {
+                padding: 2.5rem 1.5rem 1.5rem;
             }
         }
 
@@ -651,7 +798,6 @@
             }
             .slide-content p {
                 font-size: 0.85rem;
-                margin-bottom: 0.8rem;
             }
             .content-area {
                 padding: 1rem;
@@ -659,26 +805,15 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
             .banner-carousel {
                 height: 210px;
-            }
-            .slide-content span.badge-hero {
-                font-size: 0.7rem;
-            }
-            .btn-banner {
-                padding: 6px 14px;
-                font-size: 0.8rem;
-            }
-            .number-buttons {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 0.5rem;
-            }
-            .num-btn {
-                font-size: 0.9rem;
-                padding: 0.5rem;
             }
             .worker-cards {
                 grid-template-columns: 1fr 1fr;
@@ -776,11 +911,10 @@
                             <span class="tech-tag">HTML5/CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Chart.js</span>
-                            <span class="tech-tag">Bootstrap</span>
                         </div>
                         <div class="project-actions">
                             <a href="6.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-eye"></i> Visualizar</a>
-                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Detalhes adicionais em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Detalhes do projeto em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -796,12 +930,11 @@
                         <div class="tech-tags">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS Grid</span>
-                            <span class="tech-tag">JS ES6</span>
                             <span class="tech-tag">SEO</span>
                         </div>
                         <div class="project-actions">
                             <a href="7.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-globe"></i> Acessar Site</a>
-                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Apresentação do site aberta!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Apresentação do site!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -817,12 +950,11 @@
                         <div class="tech-tags">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">FontAwesome</span>
                             <span class="tech-tag">API REST</span>
                         </div>
                         <div class="project-actions">
                             <a href="8.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-mobile-screen"></i> Abrir App</a>
-                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Apresentação detalhada do App!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
+                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Detalhes do app!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
                         </div>
                     </div>
                 </div>
@@ -839,7 +971,6 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">CSS3</span>
                         </div>
                         <div class="project-actions">
                             <a href="9.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-briefcase"></i> Ver Sistema</a>
@@ -848,60 +979,6 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="website">
-                    <div class="project-thumb">
-                        <img src="https://picsum.photos/id/119/600/400" alt="Landing Page E-commerce">
-                        <span class="project-status concluido">Concluído</span>
-                    </div>
-                    <div class="project-body">
-                        <h3>Landing Page SaaS & Serviços</h3>
-                        <p>Página de alta conversão criada para apresentação de produtos e soluções corporativas com checkout simplificado.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">Tailwind</span>
-                            <span class="tech-tag">JS</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="10.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-globe"></i> Visitar Site</a>
-                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Mais detalhes em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="app">
-                    <div class="project-thumb">
-                        <img src="https://picsum.photos/id/160/600/400" alt="Painel Educacional">
-                        <span class="project-status concluido">Concluído</span>
-                    </div>
-                    <div class="project-body">
-                        <h3>Plataforma Educacional Interativa</h3>
-                        <p>Ambiente virtual de aprendizado com suporte a vídeos, questionários online e relatórios automáticos para alunos.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <div class="project-actions">
-                            <a href="11.html" class="btn-project btn-primary-proj"><i class="fa-solid fa-graduation-cap"></i> Acessar App</a>
-                            <a href="#" class="btn-project btn-secondary-proj" onclick="alert('Mais detalhes em breve!'); return false;"><i class="fa-solid fa-circle-info"></i> Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <h2 class="section-title"><i class="fa-solid fa-bolt"></i> Acesso rápido às páginas</h2>
-            <div class="number-buttons">
-                <a href="6.html" class="num-btn">6</a>
-                <a href="7.html" class="num-btn">7</a>
-                <a href="8.html" class="num-btn">8</a>
-                <a href="9.html" class="num-btn">9</a>
-                <a href="10.html" class="num-btn">10</a>
-                <a href="11.html" class="num-btn">11</a>
-                <a href="12.html" class="num-btn">12</a>
-                <a href="13.html" class="num-btn">13</a>
-                <a href="14.html" class="num-btn">14</a>
-                <a href="15.html" class="num-btn">15</a>
             </div>
 
             <h2 class="section-title"><i class="fa-solid fa-users"></i> Equipe Desenvolvedora</h2>
@@ -927,6 +1004,77 @@
                 <i class="fa-solid fa-plus"></i> Adicionar Integrante
             </a>
         </div>
+
+        <footer class="site-footer">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <h4>00brother</h4>
+                    <p>Transformamos ideias em plataformas digitais de alto impacto. Especialistas em desenvolvimento de websites, portais de gestão pública e aplicações modernas.</p>
+                    <div class="social-icons">
+                        <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fa-solid fa-angle-right"></i> Início / Showcase</a></li>
+                        <li><a href="6.html"><i class="fa-solid fa-angle-right"></i> Projetos</a></li>
+                        <li><a href="7.html"><i class="fa-solid fa-angle-right"></i> Websites</a></li>
+                        <li><a href="8.html"><i class="fa-solid fa-angle-right"></i> Comunidade</a></li>
+                        <li><a href="9.html"><i class="fa-solid fa-angle-right"></i> Vagas & Trabalhos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Fale Conosco</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <strong>E-mail:</strong><br>
+                                <a href="mailto:contato@00brother.com">contato@00brother.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Telefone / WhatsApp:</strong><br>
+                                <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Endereço:</strong><br>
+                                Av. Paulista, 1000 - São Paulo, SP
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Enviar Mensagem</h4>
+                    <form class="footer-form" onsubmit="alert('Mensagem enviada com sucesso!'); return false;">
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <textarea rows="3" placeholder="Sua mensagem..." required></textarea>
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 00brother. Todos os direitos reservados.</p>
+                <p>Desenvolvido com excelência pela equipe 00brother.</p>
+            </div>
+        </footer>
+
     </div>
 
     <script>
@@ -1010,11 +1158,9 @@
 
         // Função para filtrar os cards por categoria
         function filterProjects(category, btnElement) {
-            // Atualiza o botão ativo
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
 
-            // Filtra os cards
             const cards = document.querySelectorAll('.project-card');
             cards.forEach(card => {
                 const cardCat = card.getAttribute('data-category');
