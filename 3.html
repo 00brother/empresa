@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00brother | Painel do Gestor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --azul-corporativo: #1a2a3a;
+            --azul-medio: #2c3e50;
+            --dourado: #c9a84c;
+            --dourado-claro: #dfc27d;
+            --branco: #ffffff;
+            --cinza-claro: #f1f3f5;
+            --cinza-texto: #5a6a7a;
+            --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.06);
+            --sombra-media: 0 15px 40px rgba(0, 0, 0, 0.1);
+            --borda: 16px;
+            --transicao: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f6f8;
+            color: var(--azul-medio);
+            display: flex;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            width: 260px;
+            background: var(--azul-corporativo);
+            color: #cfd8dc;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem 0;
+            flex-shrink: 0;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+            transition: width var(--transicao);
+            z-index: 10;
+        }
+
+        .sidebar .logo-area {
+            padding: 0 1.8rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar .logo-area .brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar .logo-area .brand i {
+            color: var(--dourado);
+        }
+
+        .sidebar .logo-area .user-info {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #b0bec5;
+        }
+
+        .sidebar .logo-area .user-info strong {
+            color: #fff;
+            display: block;
+            font-weight: 600;
+        }
+
+        .sidebar nav {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .sidebar nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            color: #b0bec5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all var(--transicao);
+            margin-bottom: 4px;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+        }
+
+        .sidebar nav a.active {
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--dourado);
+            font-weight: 600;
+        }
+
+        .sidebar nav a i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .sidebar .logout-area {
+            padding: 1rem 1.8rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #b0bec5;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color var(--transicao);
+        }
+
+        .sidebar .logout-btn:hover {
+            color: #ff6b6b;
+        }
+
+        /* ========== CONTEÚDO PRINCIPAL ========== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            min-width: 0; /* Evita overflow */
+        }
+
+        /* Banner carrossel */
+        .banner-carousel {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .banner-carousel .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-carousel .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(26,42,58,0.6) 0%, rgba(26,42,58,0.2) 100%);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .banner-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .banner-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .banner-dots .dot.active {
+            background: var(--dourado);
+            border-color: var(--dourado);
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(201,168,76,0.7);
+        }
+
+        /* Área abaixo do banner */
+        .content-area {
+            padding: 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--azul-corporativo);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Botões numerados (6-15) */
+        .number-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .num-btn {
+            background: var(--branco);
+            border: 2px solid var(--dourado);
+            color: var(--azul-corporativo);
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            transition: all var(--transicao);
+            box-shadow: var(--sombra-suave);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .num-btn:hover {
+            background: var(--dourado);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-media);
+        }
+
+        /* Cards de trabalhador */
+        .worker-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .worker-card {
+            background: var(--branco);
+            border-radius: var(--borda);
+            padding: 1.5rem;
+            box-shadow: var(--sombra-suave);
+            transition: transform var(--transicao), box-shadow var(--transicao);
+            text-align: center;
+        }
+
+        .worker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .worker-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--dourado);
+        }
+
+        .worker-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--azul-corporativo);
+            margin-bottom: 0.3rem;
+        }
+
+        .worker-card p {
+            font-size: 0.9rem;
+            color: var(--cinza-texto);
+        }
+
+        /* Botão adicionar funcionário */
+        .add-worker-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--dourado);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transicao);
+            box-shadow: var(--sombra-suave);
+            text-decoration: none;
+        }
+
+        .add-worker-btn:hover {
+            background: #b8943a;
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-media);
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 1024px) {
+            .content-area {
+                padding: 1.5rem;
+            }
+            .banner-carousel {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 0.8rem 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .sidebar .logo-area,
+            .sidebar .logout-area {
+                display: none;
+            }
+            .sidebar nav {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                padding: 0;
+            }
+            .sidebar nav a {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            .banner-carousel {
+                height: 220px;
+            }
+            .content-area {
+                padding: 1rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .number-buttons {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+            .worker-cards {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-carousel {
+                height: 180px;
+            }
+            .slide-content h2 {
+                font-size: 1.2rem;
+            }
+            .number-buttons {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 0.5rem;
+            }
+            .num-btn {
+                font-size: 1rem;
+                padding: 0.6rem;
+            }
+            .worker-cards {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .worker-card {
+                padding: 1rem;
+            }
+            .worker-card img {
+                width: 60px;
+                height: 60px;
+            }
+            .add-worker-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="brand">
+                <i class="fa-solid fa-handshake"></i> 00brother
+            </div>
+            <div class="user-info">
+                <strong>Carlos Oliveira</strong>
+                Gestor Municipal
+            </div>
+        </div>
+        <nav>
+            <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+            <a href="6.html"><i class="fa-solid fa-diagram-project"></i> Projeto</a>
+            <a href="7.html"><i class="fa-solid fa-users"></i> Comunidade</a>
+            <a href="8.html"><i class="fa-solid fa-calendar-check"></i> Reuniões</a>
+            <a href="9.html"><i class="fa-solid fa-briefcase"></i> Trabalhos</a>
+        </nav>
+        <div class="logout-area">
+            <a href="principal.html" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+        </div>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+        <!-- Banner carrossel (8 slides, 4s cada) -->
+        <div class="banner-carousel" id="bannerCarousel">
+            <div class="slides" id="slidesContainer">
+                <!-- Slides gerados pelo JS -->
+            </div>
+            <div class="banner-dots" id="dotsContainer"></div>
+        </div>
+
+        <!-- Área de conteúdo -->
+        <div class="content-area">
+            <h2 class="section-title">Acesso rápido</h2>
+            <div class="number-buttons">
+                <a href="6.html" class="num-btn">6</a>
+                <a href="7.html" class="num-btn">7</a>
+                <a href="8.html" class="num-btn">8</a>
+                <a href="9.html" class="num-btn">9</a>
+                <a href="10.html" class="num-btn">10</a>
+                <a href="11.html" class="num-btn">11</a>
+                <a href="12.html" class="num-btn">12</a>
+                <a href="13.html" class="num-btn">13</a>
+                <a href="14.html" class="num-btn">14</a>
+                <a href="15.html" class="num-btn">15</a>
+            </div>
+
+            <h2 class="section-title">Nossa Equipe</h2>
+            <div class="worker-cards">
+                <div class="worker-card">
+                    <img src="12.img" alt="Gabriel">
+                    <h3>Gabriel</h3>
+                    <p>Dono da Empresa e Fundador</p>
+                </div>
+                <div class="worker-card">
+                    <img src="13.img" alt="Pérola">
+                    <h3>Pérola</h3>
+                    <p>Fundadora e Designer</p>
+                </div>
+                <div class="worker-card">
+                    <img src="14.img" alt="Hubert">
+                    <h3>Hubert</h3>
+                    <p>Fundador e Desenvolvedor</p>
+                </div>
+            </div>
+            <a href="#" class="add-worker-btn" onclick="alert('Funcionalidade de adicionar funcionário em breve!'); return false;">
+                <i class="fa-solid fa-plus"></i> Adicionar Funcionário
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Banner carrossel (8 slides)
+        const slidesData = [
+            { title: "Inovação Social", bg: "https://picsum.photos/id/10/1200/400" },
+            { title: "Tecnologia Cidadã", bg: "https://picsum.photos/id/20/1200/400" },
+            { title: "Gestão Transparente", bg: "https://picsum.photos/id/30/1200/400" },
+            { title: "Comunidade Ativa", bg: "https://picsum.photos/id/40/1200/400" },
+            { title: "Resultados Reais", bg: "https://picsum.photos/id/50/1200/400" },
+            { title: "Futuro Digital", bg: "https://picsum.photos/id/60/1200/400" },
+            { title: "Cidades Inteligentes", bg: "https://picsum.photos/id/70/1200/400" },
+            { title: "00brother", bg: "https://picsum.photos/id/80/1200/400" }
+        ];
+
+        const slidesContainer = document.getElementById('slidesContainer');
+        const dotsContainer = document.getElementById('dotsContainer');
+        let currentIndex = 0;
+        let interval;
+
+        slidesData.forEach((slide, index) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'slide';
+            slideDiv.style.backgroundImage = `url('${slide.bg}')`;
+            slideDiv.innerHTML = `
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>${slide.title}</h2>
+                </div>
+            `;
+            slidesContainer.appendChild(slideDiv);
+
+            const dot = document.createElement('span');
+            dot.className = 'dot' + (index === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+            dots[currentIndex].classList.remove('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+            resetInterval();
+        }
+
+        function nextSlide() {
+            const next = (currentIndex + 1) % slidesData.length;
+            goToSlide(next);
+        }
+
+        function startInterval() {
+            interval = setInterval(nextSlide, 4000);
+        }
+
+        function resetInterval() {
+            clearInterval(interval);
+            startInterval();
+        }
+
+        startInterval();
+    </script>
+</body>
+</html>
