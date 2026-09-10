@@ -40,69 +40,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ========== TOP BAR ========== */
-        .top-bar {
-            background: var(--branco);
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e9ecef;
-            font-size: 0.85rem;
-            color: var(--cinza-texto);
-            flex-wrap: wrap;
-            gap: 10px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-            position: relative;
-            z-index: 5;
-        }
-
-        .top-bar .brand-mini {
-            font-weight: 700;
-            color: var(--azul-corporativo);
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .top-bar .brand-mini i {
-            color: var(--dourado);
-        }
-
-        .top-bar .info-contact {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .top-bar .info-contact span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .top-bar .info-contact i {
-            color: var(--dourado);
-        }
-
-        .top-bar .info-contact a {
-            color: var(--azul-medio);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color var(--transicao);
-        }
-
-        .top-bar .info-contact a:hover {
-            color: var(--dourado);
-        }
-
         /* ========== HERO PRINCIPAL ========== */
         .hero {
             position: relative;
             flex: 1;
             width: 100%;
-            min-height: 88vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,8 +75,8 @@
         .hero-logo {
             width: 100%;
             max-width: 520px;
-            height: 220px;               /* altura fixa para formato retangular/banner */
-            object-fit: cover;           /* preenche o retângulo sem distorcer */
+            height: 220px;
+            object-fit: cover;
             object-position: center;
             margin: 0 auto 2rem;
             border-radius: 8px;
@@ -395,19 +338,8 @@
         }
 
         @media (max-width: 600px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-                text-align: left;
-            }
-            .top-bar .info-contact {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
             .hero {
-                min-height: 80vh;
+                min-height: 90vh;
             }
             .hero-logo {
                 max-width: 100%;
@@ -442,17 +374,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Barra superior -->
-    <div class="top-bar">
-        <div class="brand-mini">
-            <i class="fa-solid fa-handshake"></i> 00brother
-        </div>
-        <div class="info-contact">
-            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:00brotherempresa@gmail.com">00brotherempresa@gmail.com</a></span>
-            <span><i class="fa-solid fa-phone"></i> (43) 99139-1519</span>
-        </div>
-    </div>
 
     <!-- Hero principal -->
     <header class="hero">
