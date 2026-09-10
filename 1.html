@@ -18,7 +18,6 @@
             --branco: #ffffff;
             --cinza-claro: #f1f3f5;
             --cinza-texto: #5a6a7a;
-            --verde-sucesso: #2ea44f;
             --sombra-suave: 0 8px 30px rgba(0, 0, 0, 0.06);
             --sombra-media: 0 15px 40px rgba(0, 0, 0, 0.1);
             --borda: 16px;
@@ -101,6 +100,7 @@
         /* ========== HERO PRINCIPAL ========== */
         .hero {
             position: relative;
+            flex: 1;
             width: 100%;
             min-height: 88vh;
             display: flex;
@@ -237,142 +237,10 @@
             transform: translateY(-3px);
         }
 
-        /* ========== SEÇÃO SOBRE ========== */
-        .info-section {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 4rem 5% 3rem;
-            width: 100%;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--azul-corporativo);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 2rem;
-        }
-
-        .section-title i {
-            color: var(--dourado);
-            font-size: 1.4rem;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .info-card {
-            background: var(--branco);
-            padding: 1.8rem;
-            border-radius: var(--borda);
-            box-shadow: var(--sombra-suave);
-            transition: all var(--transicao);
-            border-bottom: 4px solid transparent;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .info-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--sombra-media);
-            border-bottom-color: var(--dourado);
-        }
-
-        .info-card .icone {
-            width: 55px;
-            height: 55px;
-            border-radius: 14px;
-            background: rgba(201, 168, 76, 0.12);
-            color: var(--dourado);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .info-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--azul-corporativo);
-            margin-bottom: 0.6rem;
-        }
-
-        .info-card p {
-            font-size: 0.9rem;
-            color: var(--cinza-texto);
-            line-height: 1.6;
-        }
-
-        /* ========== BANNER HORIZONTAL ========== */
-        .banner-horizontal-section {
-            max-width: 1300px;
-            margin: 0 auto 4rem;
-            padding: 0 5%;
-            width: 100%;
-        }
-
-        .banner-horizontal {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 7;
-            border-radius: var(--borda);
-            overflow: hidden;
-            box-shadow: var(--sombra-media);
-            background: #000;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .banner-horizontal img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-
-        .banner-horizontal img.active {
-            opacity: 1;
-        }
-
-        .banner-horizontal .banner-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 4;
-        }
-
-        .banner-horizontal .banner-dots .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.55);
-            cursor: pointer;
-            transition: all var(--transicao);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .banner-horizontal .banner-dots .dot.active {
-            background: var(--dourado);
-            border-color: var(--dourado);
-            transform: scale(1.3);
-            box-shadow: 0 0 12px rgba(201, 168, 76, 0.7);
-        }
-
         /* ========== CTA FINAL ========== */
         .cta-section {
             max-width: 1300px;
-            margin: 0 auto 4rem;
+            margin: 4rem auto;
             padding: 0 5%;
             width: 100%;
         }
@@ -518,9 +386,6 @@
             .hero-content p {
                 font-size: 1rem;
             }
-            .banner-horizontal {
-                aspect-ratio: 16 / 9;
-            }
         }
 
         @media (max-width: 600px) {
@@ -556,14 +421,10 @@
                 width: 100%;
                 justify-content: center;
             }
-            .banner-horizontal {
-                aspect-ratio: 4 / 3;
-            }
-            .info-section,
-            .banner-horizontal-section,
             .cta-section {
                 padding-left: 1.2rem;
                 padding-right: 1.2rem;
+                margin: 2.5rem auto;
             }
             .footer-bottom {
                 flex-direction: column;
@@ -596,52 +457,12 @@
                 <a href="principal.html" class="btn-hero-primary">
                     <i class="fa-solid fa-right-to-bracket"></i> Acessar Plataforma
                 </a>
-                <a href="#sobre" class="btn-hero-secondary">
+                <a href="#contato" class="btn-hero-secondary">
                     <i class="fa-solid fa-circle-info"></i> Saiba Mais
                 </a>
             </div>
         </div>
     </header>
-
-    <!-- Seção Sobre -->
-    <section class="info-section" id="sobre">
-        <h2 class="section-title">
-            <i class="fa-solid fa-building"></i> Sobre a 00brother
-        </h2>
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="icone"><i class="fa-solid fa-lightbulb"></i></div>
-                <h3>Inovação com Propósito</h3>
-                <p>Desenvolvemos aplicativos e plataformas que unem tecnologia de ponta a causas sociais relevantes.</p>
-            </div>
-            <div class="info-card">
-                <div class="icone"><i class="fa-solid fa-handshake"></i></div>
-                <h3>Impacto Social Real</h3>
-                <p>Cada projeto nasce da escuta ativa das comunidades e gestores públicos.</p>
-            </div>
-            <div class="info-card">
-                <div class="icone"><i class="fa-solid fa-shield-halved"></i></div>
-                <h3>Segurança e Confiabilidade</h3>
-                <p>Soluções em conformidade com a LGPD e moderação híbrida.</p>
-            </div>
-            <div class="info-card">
-                <div class="icone"><i class="fa-solid fa-earth-americas"></i></div>
-                <h3>Presença Nacional</h3>
-                <p>Atuamos em dezenas de municípios, fortalecendo a democracia digital.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Banner horizontal -->
-    <div class="banner-horizontal-section">
-        <div class="banner-horizontal" id="bannerHorizontal">
-            <img src="banner1.jpg" class="active" alt="Banner 1">
-            <img src="banner2.jpg" alt="Banner 2">
-            <img src="banner3.jpg" alt="Banner 3">
-            <img src="banner4.jpg" alt="Banner 4">
-            <div class="banner-dots" id="dotsHorizontal"></div>
-        </div>
-    </div>
 
     <!-- CTA final -->
     <div class="cta-section">
@@ -655,7 +476,7 @@
     </div>
 
     <!-- Rodapé -->
-    <footer class="site-footer">
+    <footer class="site-footer" id="contato">
         <div class="footer-grid">
 
             <div class="footer-col">
@@ -672,7 +493,6 @@
             <div class="footer-col">
                 <h4>Navegação</h4>
                 <ul class="footer-links-list">
-                    <li><a href="#sobre"><i class="fa-solid fa-angle-right"></i> Sobre Nós</a></li>
                     <li><a href="principal.html"><i class="fa-solid fa-angle-right"></i> Acessar Plataforma</a></li>
                     <li><a href="#"><i class="fa-solid fa-angle-right"></i> Termos de Uso</a></li>
                     <li><a href="#"><i class="fa-solid fa-angle-right"></i> Política de Privacidade (LGPD)</a></li>
@@ -704,58 +524,6 @@
             <p>Desenvolvimento de Apps | Impacto Social | Inovação Tecnológica</p>
         </div>
     </footer>
-
-    <script>
-        // Carrossel do banner horizontal
-        function configurarBannerHorizontal() {
-            const container = document.getElementById('bannerHorizontal');
-            const imagens = container.querySelectorAll('img');
-            const dotsContainer = document.getElementById('dotsHorizontal');
-            let indiceAtual = 0;
-            let intervalo;
-
-            imagens.forEach((_, i) => {
-                const dot = document.createElement('span');
-                dot.className = 'dot' + (i === 0 ? ' active' : '');
-                dot.setAttribute('aria-label', `Ir para banner ${i + 1}`);
-                dot.addEventListener('click', () => mudarSlide(i));
-                dotsContainer.appendChild(dot);
-            });
-
-            const dots = dotsContainer.querySelectorAll('.dot');
-
-            function mudarSlide(novoIndice) {
-                if (novoIndice === indiceAtual) return;
-                imagens[indiceAtual].classList.remove('active');
-                dots[indiceAtual].classList.remove('active');
-                indiceAtual = novoIndice;
-                imagens[indiceAtual].classList.add('active');
-                dots[indiceAtual].classList.add('active');
-                reiniciarIntervalo();
-            }
-
-            function proximoSlide() {
-                const proximo = (indiceAtual + 1) % imagens.length;
-                mudarSlide(proximo);
-            }
-
-            function iniciarIntervalo() {
-                intervalo = setInterval(proximoSlide, 5000);
-            }
-
-            function reiniciarIntervalo() {
-                clearInterval(intervalo);
-                iniciarIntervalo();
-            }
-
-            container.addEventListener('mouseenter', () => clearInterval(intervalo));
-            container.addEventListener('mouseleave', iniciarIntervalo);
-
-            iniciarIntervalo();
-        }
-
-        configurarBannerHorizontal();
-    </script>
 
 </body>
 </html>
