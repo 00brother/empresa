@@ -130,14 +130,16 @@
 
         /* ===== LOGO RETANGULAR ===== */
         .hero-logo {
-            max-width: 480px;
-            width: 92%;
-            height: auto;
+            width: 100%;
+            max-width: 520px;
+            height: 220px;               /* altura fixa para formato retangular/banner */
+            object-fit: cover;           /* preenche o retângulo sem distorcer */
+            object-position: center;
             margin: 0 auto 2rem;
             border-radius: 8px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             display: block;
-            object-fit: cover;
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .hero-content .badge-hero {
@@ -386,6 +388,10 @@
             .hero-content p {
                 font-size: 1rem;
             }
+            .hero-logo {
+                max-width: 420px;
+                height: 180px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -404,7 +410,8 @@
                 min-height: 80vh;
             }
             .hero-logo {
-                max-width: 300px;
+                max-width: 100%;
+                height: 140px;
                 border-radius: 6px;
             }
             .hero-content h1 {
